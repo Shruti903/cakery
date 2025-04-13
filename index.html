@@ -6,271 +6,66 @@
     <title>RSCakery Bliss</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #fffaf0;
-            color: #333;
         }
         header {
             background-color: #f8b400;
             color: white;
             text-align: center;
-            padding: 1.5rem 0;
-            position: relative;
+            padding: 1rem 0;
         }
         nav {
             display: flex;
             justify-content: center;
             background-color: #f4a460;
-            padding: 0.8rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            padding: 0.5rem;
         }
         nav a {
-            margin: 0 1.5rem;
+            margin: 0 1rem;
             text-decoration: none;
             color: white;
             font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
         }
         nav a:hover {
-            color: #fff5e1;
-            transform: scale(1.05);
+            text-decoration: underline;
         }
         .section {
-            padding: 3rem 2rem;
+            padding: 2rem;
             text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .section h2 {
-            color: #f8b400;
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-        .section h2::after {
-            content: '';
-            position: absolute;
-            width: 50%;
-            height: 3px;
-            background-color: #f4a460;
-            bottom: -10px;
-            left: 25%;
         }
         .menu {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 2rem;
         }
         .menu-item {
             border: 1px solid #ddd;
             border-radius: 10px;
-            padding: 1.5rem;
-            width: 280px;
+            margin: 1rem;
+            padding: 1rem;
+            width: 250px;
             background-color: white;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .menu-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .menu-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 1rem;
+            width: 200px; /* Fixed width */
+            height: 150px; /* Fixed height */
+            object-fit: cover; /* Crop image proportionally */
+            border-radius: 10px;
         }
         .menu-item h3 {
             margin: 0.5rem 0;
             color: #f8b400;
-            font-size: 1.4rem;
-        }
-        .menu-item p {
-            color: #666;
-            margin: 0.5rem 0;
-        }
-        .price {
-            font-weight: bold;
-            color: #f4a460;
-            font-size: 1.2rem;
         }
         footer {
             background-color: #f8b400;
             color: white;
             text-align: center;
-            padding: 2rem 0;
+            padding: 1rem 0;
             margin-top: 2rem;
-        }
-        .social-icons {
-            margin: 1rem 0;
-        }
-        .social-icons a {
-            color: white;
-            margin: 0 0.5rem;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-        .social-icons a:hover {
-            color: #fff5e1;
-        }
-
-        /* Slideshow Styles */
-        .slideshow-container {
-            position: relative;
-            max-width: 100%;
-            margin: 0 auto;
-            overflow: hidden;
-            height: 500px;
-        }
-        .slide {
-            display: none;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            transition: opacity 1s ease;
-        }
-        .slide.active {
-            display: block;
-            opacity: 1;
-        }
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .slide-content {
-            position: absolute;
-            bottom: 50px;
-            left: 50px;
-            background-color: rgba(248, 180, 0, 0.8);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            max-width: 400px;
-            text-align: left;
-        }
-        .slide-content h2 {
-            margin-top: 0;
-            color: white;
-        }
-        .dots {
-            text-align: center;
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-        }
-        .dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 5px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
-        .dot.active {
-            background-color: #f8b400;
-        }
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-            background-color: rgba(0,0,0,0.3);
-        }
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-        .prev:hover, .next:hover {
-            background-color: rgba(0,0,0,0.8);
-        }
-
-        /* Contact Form */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            color: #f8b400;
-        }
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: Arial, sans-serif;
-        }
-        .form-group textarea {
-            height: 120px;
-        }
-        .submit-btn {
-            background-color: #f8b400;
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .submit-btn:hover {
-            background-color: #f4a460;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: center;
-                padding: 1rem;
-            }
-            nav a {
-                margin: 0.5rem 0;
-            }
-            .slideshow-container {
-                height: 350px;
-            }
-            .slide-content {
-                left: 20px;
-                bottom: 20px;
-                max-width: 80%;
-                padding: 1rem;
-            }
-            .menu-item {
-                width: 100%;
-                max-width: 350px;
-            }
         }
     </style>
 </head>
@@ -280,228 +75,44 @@
         <p>Where every bite is a delight!</p>
     </header>
     <nav>
-        <a href="#home">Home</a>
         <a href="#menu">Menu</a>
         <a href="#about">About Us</a>
-        <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
     </nav>
-
-    <!-- Slideshow Section -->
-    <section id="home" class="slideshow-container">
-        <div class="slide active">
-            <img src="https://images.unsplash.com/photo-1552689486-f6773047d19f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Cake Display">
-            <div class="slide-content">
-                <h2>Artisanal Cakes</h2>
-                <p>Handcrafted with love using the finest ingredients for your special occasions.</p>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Macarons Display">
-            <div class="slide-content">
-                <h2>Delicate Macarons</h2>
-                <p>Colorful, flavorful, and perfectly crafted French macarons in a variety of flavors.</p>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://i.ibb.co/xH3JNzg/fidel-fernando-KY5-ZBCIE18-E-unsplash.jpg" alt="Donuts Display">
-            <div class="slide-content">
-                <h2>Gourmet Donuts</h2>
-                <p>Freshly made donuts with creative toppings and fillings for every taste.</p>
-            </div>
-        </div>
-        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-        <a class="next" onclick="changeSlide(1)">&#10095;</a>
-        <div class="dots">
-            <span class="dot active" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
-    </section>
-
     <section class="section" id="menu">
         <h2>Our Delicious Menu</h2>
         <div class="menu">
             <div class="menu-item">
                 <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Chocolate Cake">
                 <h3>Chocolate Cake</h3>
-                <p>Rich, moist chocolate cake with layers of chocolate ganache</p>
-                <p class="price">$20</p>
+                <p>$20</p>
             </div>
 
             <div class="menu-item">
                 <img src="https://i.ibb.co/9wJbfVG/james-trenda-h-F1-Uug-Jey-U4-unsplash.jpg" alt="Macarons">
                 <h3>Macarons</h3>
-                <p>Assorted flavors including vanilla, raspberry, and pistachio</p>
-                <p class="price">$15 (box of 6)</p>
+                <p>$15</p>
             </div>
 
             <div class="menu-item">
                 <img src="https://i.ibb.co/xH3JNzg/fidel-fernando-KY5-ZBCIE18-E-unsplash.jpg" alt="Donuts">
                 <h3>Donuts</h3>
-                <p>Freshly made daily with various glazes and toppings</p>
-                <p class="price">$25 (dozen)</p>
-            </div>
-            
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Cupcakes">
-                <h3>Cupcakes</h3>
-                <p>Mini cakes with buttercream frosting in various flavors</p>
-                <p class="price">$18 (half dozen)</p>
-            </div>
-            
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Cheesecake">
-                <h3>Cheesecake</h3>
-                <p>Creamy New York style with berry compote topping</p>
-                <p class="price">$30</p>
-            </div>
-            
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Cookies">
-                <h3>Artisan Cookies</h3>
-                <p>Hand-decorated cookies in seasonal designs</p>
-                <p class="price">$12 (half dozen)</p>
+                <p>$25</p>
             </div>
         </div>
     </section>
-
     <section class="section" id="about">
         <h2>About Us</h2>
-        <div style="max-width: 800px; margin: 0 auto; text-align: left; background-color: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
-            <p>Founded in 2015, RSCakery Bliss is a boutique bakery dedicated to creating handcrafted cakes, pastries, and desserts made with love and care. Our mission is to bring joy to every occasion through our delicious creations.</p>
-            
-            <h3 style="color: #f8b400;">Our Philosophy</h3>
-            <p>We believe in using only the finest ingredients, sourced locally whenever possible. Each item is made from scratch daily, ensuring freshness and quality in every bite.</p>
-            
-            <h3 style="color: #f8b400;">Our Team</h3>
-            <p>Led by award-winning pastry chef Shruti Raj, our team of talented bakers and decorators bring creativity and passion to every creation. With over 15 years of combined experience, we're committed to excellence in both taste and presentation.</p>
-        </div>
+        <p>Cakery Bliss is a boutique bakery offering handcrafted cakes, macarons, and desserts made with love and care.</p>
     </section>
-
-    <section class="section" id="gallery">
-        <h2>Gallery</h2>
-        <div class="menu">
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Wedding Cake">
-                <h3>Wedding Cakes</h3>
-            </div>
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1519869325930-281384150729?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Birthday Cake">
-                <h3>Birthday Specials</h3>
-            </div>
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Custom Cakes">
-                <h3>Custom Creations</h3>
-            </div>
-        </div>
-    </section>
-
     <section class="section" id="contact">
         <h2>Contact Us</h2>
-        <div class="contact-form">
-            <form id="contactForm">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <select id="subject" name="subject" required>
-                        <option value="">Select a subject</option>
-                        <option value="order">Order Inquiry</option>
-                        <option value="custom">Custom Cake Request</option>
-                        <option value="event">Event Catering</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-        </div>
-        <div style="margin-top: 2rem;">
-            <p><strong>Email:</strong> shrutiraj9033@gmail.com</p>
-            <p><strong>Phone:</strong> 9835020010</p>
-            <p><strong>Address:</strong> 123 Sweet Street, Dessert City</p>
-            <p><strong>Hours:</strong> Monday-Saturday: 8am-7pm, Sunday: 9am-5pm</p>
-        </div>
+        <p>Email: shrutiraj9033@gmail.com</p>
+        <p>Phone: 9835020010</p>
+        <p>Visit us at: 123 Sweet Street, Dessert City</p>
     </section>
-
     <footer>
-        <div class="social-icons">
-            <a href="#" aria-label="Facebook"><i>FB</i></a>
-            <a href="#" aria-label="Instagram"><i>IG</i></a>
-            <a href="#" aria-label="Twitter"><i>TW</i></a>
-            <a href="#" aria-label="Pinterest"><i>PIN</i></a>
-        </div>
         <p>&copy; 2024 RSCakery Bliss. All rights reserved.</p>
     </footer>
-
-    <script>
-        // Slideshow functionality
-        let slideIndex = 1;
-        showSlides(slideIndex);
-
-        function changeSlide(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            let i;
-            const slides = document.getElementsByClassName("slide");
-            const dots = document.getElementsByClassName("dot");
-            
-            if (n > slides.length) { slideIndex = 1; }
-            if (n < 1) { slideIndex = slides.length; }
-            
-            for (i = 0; i < slides.length; i++) {
-                slides[i].classList.remove("active");
-            }
-            
-            for (i = 0; i < dots.length; i++) {
-                dots[i].classList.remove("active");
-            }
-            
-            slides[slideIndex-1].classList.add("active");
-            dots[slideIndex-1].classList.add("active");
-        }
-
-        // Auto-advance slideshow every 5 seconds
-        setInterval(() => {
-            changeSlide(1);
-        }, 5000);
-
-        // Form submission handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
